@@ -47,23 +47,30 @@ function cookiesPerHourRnd(store){
 
   return totalCookies_per_hr_rounded;
 }
+firstAndPike.render = storeName_and_cookiesTotals();
+seatacAndAirport.render = storeName_and_cookiesTotals();
+seattleCenter.render = storeName_and_cookiesTotals();
+capitolHill.render = storeName_and_cookiesTotals();
+alki.render = storeName_and_cookiesTotals();
 
-for (var j = 0; j < stores.length; j++ ){
-  var store = stores[j];
-  var total = 0;
+function storeName_and_cookiesTotals(){
+  for (var j = 0; j < stores.length; j++ ){
+    var store = stores[j];
+    var total = 0;
 
-  var tr_el = document.createElement('tr');
-  myElement.appendChild(tr_el);
+    var tr_el = document.createElement('tr');
+    myElement.appendChild(tr_el);
 
-  var td_el =document.createElement('td');
-  td_el.textContent = store.location;
-  myElement.appendChild(td_el);
+    var td_el =document.createElement('td');
+    td_el.textContent = store.location;
+    myElement.appendChild(td_el);
 
-  for (var i=6; i < 20; i++){
-    total = total + cookiesPerHourRnd(store);
+    for (var i=6; i < 20; i++){
+      total = total + cookiesPerHourRnd(store);
+    }
+    var td_el3 = document.createElement('td');
+    td_el3.textContent = total;
+    myElement.appendChild(td_el3);
   }
-  var td_el3 = document.createElement('td');
-  td_el3.textContent = total;
-  myElement.appendChild(td_el3);
 }
 
