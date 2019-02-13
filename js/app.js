@@ -25,9 +25,12 @@ myElement.appendChild(th_el2);
 
 for (var k=6; k <20; k++){
   var th_el1 = document.createElement('th');
-  th_el1.textContent = (k);
+  th_el1.textContent = ((k) + ':00');
   myElement.appendChild(th_el1);
 }
+var th_el3 = document.createElement('th');
+th_el3.textContent = ('TOTAL');
+myElement.appendChild(th_el3);
 
 var stores = [firstAndPike, seatacAndAirport, seattleCenter, capitolHill, alki];
 
