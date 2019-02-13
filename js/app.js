@@ -1,43 +1,33 @@
 'use strict';
 
-var firstAndPike = {
-  location: '1st and Pike',
-  min_customers_per_hr: 23,
-  max_customers_per_hr: 65,
-  average_cookies_per_cust: 6.3,
-};
+function StoreFront(location, min_customers_per_hr, max_customers_per_hr, average_cookies_per_cust){
+  this.location = location;
+  this.min_customers_per_hr = min_customers_per_hr;
+  this.max_customers_per_hr = max_customers_per_hr;
+  this.average_cookies_per_cust = average_cookies_per_cust;
+}
 
-var seatacAndAirport = {
-  location: 'SeaTac and Airport',
-  min_customers_per_hr: 3,
-  max_customers_per_hr: 24,
-  average_cookies_per_cust: 1.2,
-};
-
-var seattleCenter = {
-  location: 'Seattle Center',
-  min_customers_per_hr: 11,
-  max_customers_per_hr: 38,
-  average_cookies_per_cust: 3.7,
-};
-
-var capitolHill = {
-  location: 'Capitol Hill',
-  min_customers_per_hr: 20,
-  max_customers_per_hr: 38,
-  average_cookies_per_cust: 2.3,
-};
-
-var alki = {
-  location: 'Alki',
-  min_customers_per_hr: 2,
-  max_customers_per_hr: 13,
-  average_cookies_per_cust: 4.6,
-};
+var firstAndPike = new StoreFront ('1st and Pike', 23, 65, 6.3);
+var seatacAndAirport = new StoreFront ('SeaTac and Airport', 3, 24, 1.2);
+var seattleCenter = new StoreFront ('Seattle Center', 11, 38, 3.7);
+var capitolHill = new StoreFront ('Capitol Hill', 20, 38, 2.3);
+var alki = new StoreFront ('Alki', 2, 13, 4.6);
 
 // by the hour, random number of customers
 // multiply customers by average number of cookies and round up with final number
 // keep a running total per store of number of cookies sold.
+
+var myElement = document.getElementById('patHeader');
+var tr_el1 = document.createElement('tr');
+var th_el2 = document.createElement('th');
+myElement.appendChild(tr_el1);
+myElement.appendChild(th_el2);
+
+for (var k=6; k <20; k++){
+  var th_el1 = document.createElement('th');
+  th_el1.textContent = (k);
+  myElement.appendChild(th_el1);
+}
 
 var stores = [firstAndPike, seatacAndAirport, seattleCenter, capitolHill, alki];
 
@@ -48,11 +38,9 @@ function cookiesPerHourRnd(store){
 
   //above is the total cookies per hour rounded up to the next cookie.
 
-
-  var myElement2 = document.getElementById('patHeader');
-  var li_el1 = document.createElement('li');
-  li_el1.textContent =((i) + ':00  ') + totalCookies_per_hr_rounded;
-  myElement2.appendChild(li_el1);
+  var td_el1 = document.createElement('td');
+  td_el1.textContent = totalCookies_per_hr_rounded;
+  myElement.appendChild(td_el1);
 
   return totalCookies_per_hr_rounded;
 }
@@ -61,19 +49,18 @@ for (var j = 0; j < stores.length; j++ ){
   var store = stores[j];
   var total = 0;
 
+  var tr_el = document.createElement('tr');
+  myElement.appendChild(tr_el);
 
-  var myElement = document.getElementById('patHeader');
-  var h2_el = document.createElement('h2');
-  h2_el.textContent = store.location;
-  myElement.appendChild(h2_el);
+  var td_el =document.createElement('td');
+  td_el.textContent = store.location;
+  myElement.appendChild(td_el);
 
   for (var i=6; i < 20; i++){
     total = total + cookiesPerHourRnd(store);
   }
-
-  var myElement1 = document.getElementById('patHeader');
-  var li_el15 = document.createElement('li');
-  li_el15.textContent = 'Closing Total' + total;
-  myElement1.appendChild(li_el15);
+  var td_el3 = document.createElement('td');
+  td_el3.textContent = total;
+  myElement.appendChild(td_el3);
 }
 
