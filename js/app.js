@@ -14,7 +14,7 @@ var seatacAndAirport = {
   average_cookies_per_cust: 1.2,
 };
 
-/*var seattleCenter = {
+var seattleCenter = {
   location: 'Seattle Center',
   min_customers_per_hr: 11,
   max_customers_per_hr: 38,
@@ -34,12 +34,12 @@ var alki = {
   max_customers_per_hr: 13,
   average_cookies_per_cust: 4.6,
 };
-*/
+
 // by the hour, random number of customers
 // multiply customers by average number of cookies and round up with final number
 // keep a running total per store of number of cookies sold.
 
-var stores = [firstAndPike, seatacAndAirport/*, seattleCenter, capitolHill, alki*/];
+var stores = [firstAndPike, seatacAndAirport, seattleCenter, capitolHill, alki];
 
 function cookiesPerHourRnd(store){
   var num_of_cust_per_hr = Math.floor(Math.random() * (store.max_customers_per_hr - store.min_customers_per_hr + 1));
