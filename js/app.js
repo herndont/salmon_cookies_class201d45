@@ -46,7 +46,6 @@ function cookiesPerHourRnd(store){
 StoreFront.prototype.render2 = function() {
   var td_el =document.createElement('td');
   td_el.textContent = this.location;
-  return this.location + '!';
 };
 
 StoreFront.prototype.render = function(){
@@ -61,6 +60,7 @@ StoreFront.prototype.render = function(){
   for (var i=6; i < 20; i++){
     total = total + cookiesPerHourRnd(this);
   }
+  console.log(this);
   var td_el3 = document.createElement('td');
   td_el3.textContent = total;
   myElement.appendChild(td_el3);
@@ -71,3 +71,24 @@ seatacAndAirport.render();
 seattleCenter.render();
 capitolHill.render();
 alki.render();
+
+var store_form = document.getElementById('store_input_form');
+
+var handle_form_input = function(form_event){
+  form_event.preventDefault();
+  var location = event.target.storeName.value;
+  var min_Customers = event.target.minCust.value;
+  var max_Customers = event.target.maxCust.value;
+  var average_Cookies = event.target.aveCookies.value;
+
+  var newStore = new StoreFront(location, min_Customers, max_Customers, average_Cookies);
+
+  newStore.render();
+  newStore.render2();
+};
+
+store_form.addEventListener('submit', handle_form_input);
+
+//style all of the customer and internal facing pages.
+//make sure that input information flows into a new object in the table
+//create footer row for the table
