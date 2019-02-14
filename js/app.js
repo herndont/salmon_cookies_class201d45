@@ -19,16 +19,28 @@ var tr_el1 = document.createElement('tr');
 var th_el2 = document.createElement('th');
 myElement.appendChild(tr_el1);
 myElement.appendChild(th_el2);
+
 //store time loop to create times in the header
 for (var k=6; k <20; k++){
   var th_el1 = document.createElement('th');
   th_el1.textContent = ((k) + ':00');
   myElement.appendChild(th_el1);
 }
-//element created for the total cell
+//element created for the total cell for rows
 var th_el3 = document.createElement('th');
 th_el3.textContent = ('TOTAL');
 myElement.appendChild(th_el3);
+
+//total footer identifier for columns
+
+for (var l=6; l <20; l++){
+  var td_el4 = document.createElement('td');
+  var tfoot_el = document.createElement('tfoot');
+  tfoot_el.textContent = 'dumb';
+  myElement.appendChild(td_el4);
+  myElement.appendChild(tfoot_el);
+}
+
 
 function cookiesPerHourRnd(store){
   var num_of_cust_per_hr = Math.floor(Math.random() * (store.max_customers_per_hr - store.min_customers_per_hr + 1));
@@ -60,7 +72,6 @@ StoreFront.prototype.render = function(){
   for (var i=6; i < 20; i++){
     total = total + cookiesPerHourRnd(this);
   }
-  console.log(this);
   var td_el3 = document.createElement('td');
   td_el3.textContent = total;
   myElement.appendChild(td_el3);
