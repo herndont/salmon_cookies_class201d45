@@ -32,14 +32,14 @@ th_el3.textContent = ('TOTAL');
 myElement.appendChild(th_el3);
 
 //total footer identifier for columns
-
-for (var l=6; l <20; l++){
-  var td_el4 = document.createElement('td');
-  var tfoot_el = document.createElement('tfoot');
-  tfoot_el.textContent = 'dumb';
-  myElement.appendChild(td_el4);
-  myElement.appendChild(tfoot_el);
-}
+//CANNOT FIGURE THIS SHIT OUT!!!!!!
+// for (var l=6; l <20; l++){
+//   var td_el4 = document.createElement('td');
+//   var tfoot_el = document.createElement('tfoot');
+//   tfoot_el.textContent = 'dumb';
+//   myElement.appendChild(td_el4);
+//   myElement.appendChild(tfoot_el);
+// }
 
 
 function cookiesPerHourRnd(store){

@@ -1,3 +1,30 @@
-h1 {
-    font-size: 180%;
+*{
+    line-height: 100%;
+    box-sizing: border-box;
+}
+header {
+    height: 95px;
+    background: #777;
+    padding-bottom: 30px;
+}
+header div{
+    max-width: 960px;
+    margin: auto;
+}
+header img {
+    display: inline-block;
+    margin: 12.5px 60px 0px 12.5px;
+}
+
+header nav{
+    display: inline-block;
+    margin: 12.5px 0px;
+    height: 70px;
+    vertical-align: top;
+}
+
+nav li{
+    display: inline-block;
+    line-height: 70px;
+    margin-right: 60px;
 }
